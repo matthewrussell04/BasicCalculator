@@ -46,16 +46,16 @@
             this.subtract = new System.Windows.Forms.Button();
             this.clear = new System.Windows.Forms.Button();
             this.zero = new System.Windows.Forms.Button();
+            this.historyDisplay = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // calcDisplay
             // 
             this.calcDisplay.BackColor = System.Drawing.Color.White;
-            this.calcDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.calcDisplay.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calcDisplay.Location = new System.Drawing.Point(58, 9);
+            this.calcDisplay.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
+            this.calcDisplay.Location = new System.Drawing.Point(12, 39);
             this.calcDisplay.Name = "calcDisplay";
-            this.calcDisplay.Size = new System.Drawing.Size(272, 95);
+            this.calcDisplay.Size = new System.Drawing.Size(366, 65);
             this.calcDisplay.TabIndex = 0;
             this.calcDisplay.Text = "Welcome";
             this.calcDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -236,6 +236,15 @@
             this.zero.UseVisualStyleBackColor = true;
             this.zero.Click += new System.EventHandler(this.zero_Click);
             // 
+            // historyDisplay
+            // 
+            this.historyDisplay.BackColor = System.Drawing.Color.White;
+            this.historyDisplay.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historyDisplay.Location = new System.Drawing.Point(12, 15);
+            this.historyDisplay.Name = "historyDisplay";
+            this.historyDisplay.Size = new System.Drawing.Size(366, 24);
+            this.historyDisplay.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AcceptButton = this.equals;
@@ -243,6 +252,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(390, 459);
+            this.Controls.Add(this.historyDisplay);
             this.Controls.Add(this.zero);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.subtract);
@@ -288,6 +298,7 @@
         private System.Windows.Forms.Button subtract;
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button zero;
+        private System.Windows.Forms.Label historyDisplay;
     }
 }
 

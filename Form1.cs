@@ -104,62 +104,93 @@ namespace BasicCalculator
         private void clear_Click(object sender, EventArgs e)
         {
             calcDisplay.Text = "0";
+            historyDisplay.Text = "";
         }
 
         private void add_Click(object sender, EventArgs e)
         {
             op = '+';
-            num1 = Convert.ToDecimal(calcDisplay.Text);
-            calcDisplay.Text = "0";
+            try
+            {
+                num1 = Convert.ToDecimal(calcDisplay.Text);
+            } catch { }
+            calcDisplay.Text = "";
+            historyDisplay.Text = $"{num1} {op}";
         }
 
         private void subtract_Click(object sender, EventArgs e)
         {
             op = '-';
-            num1 = Convert.ToDecimal(calcDisplay.Text);
-            calcDisplay.Text = "0";
+            try
+            {
+                num1 = Convert.ToDecimal(calcDisplay.Text);
+            } catch { }
+            calcDisplay.Text = "";
+            historyDisplay.Text = $"{num1} {op}";
         }
 
         private void multiply_Click(object sender, EventArgs e)
         {
             op = 'X';
-            num1 = Convert.ToDecimal(calcDisplay.Text);
-            calcDisplay.Text = "0";
+            try
+            {
+                num1 = Convert.ToDecimal(calcDisplay.Text);
+            } catch { }
+            calcDisplay.Text = "";
+            historyDisplay.Text = $"{num1} {op}";
         }
 
         private void divide_Click(object sender, EventArgs e)
         {
             op = '÷';
-            num1 = Convert.ToDecimal(calcDisplay.Text);
-            calcDisplay.Text = "0";
+            try
+            {
+                num1 = Convert.ToDecimal(calcDisplay.Text);
+            } catch { }
+            calcDisplay.Text = "";
+            historyDisplay.Text = $"{num1} {op}";
         }
 
         private void equals_Click(object sender, EventArgs e)
         {
-            num2 = Convert.ToDecimal(calcDisplay.Text);
-            switch(op)
+            if (historyDisplay.Text.Contains('=') == true)
             {
-                case '+':
-                    result = (num1 + num2);
-                    calcDisplay.Text = Convert.ToString(result);
-                    break;
-
-                case '-':
-                    result = (num1 - num2);
-                    calcDisplay.Text = Convert.ToString(result);
-                    break;
-
-                case 'X':
-                    result = (num1 * num2);
-                    calcDisplay.Text = Convert.ToString(result);
-                    break;
-
-                case '÷':
-                    result = (num1 / num2);
-                    calcDisplay.Text = Convert.ToString(result);
-                    break;
+            } else
+            {
+                try
+                {
+                    num2 = Convert.ToDecimal(calcDisplay.Text);
+                } catch { }
+                historyDisplay.Text += $" {num2} =";
             }
-            op = ' ';
+            try
+            {
+                switch (op)
+                {
+                    case '+':
+                        result = (num1 + num2);
+                        calcDisplay.Text = Convert.ToString(result);
+                        break;
+
+                    case '-':
+                        result = (num1 - num2);
+                        calcDisplay.Text = Convert.ToString(result);
+                        break;
+
+                    case 'X':
+                        result = (num1 * num2);
+                        calcDisplay.Text = Convert.ToString(result);
+                        break;
+
+                    case '÷':
+                        result = (num1 / num2);
+                        calcDisplay.Text = Convert.ToString(result);
+                        break;
+                }
+                op = ' ';
+            } catch
+            {
+                calcDisplay.Text = "Cannot Divide By Zero";
+            }
         }
-    }
-}
+    } }
